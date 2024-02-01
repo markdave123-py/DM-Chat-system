@@ -15,10 +15,12 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
     console.log('New WB connected');
 
-    socket.on('message', (data)=> {
-        console.log("messaging user",data)
-        io.emit('message', data);
-    })
+    socket.emit('message', "welcome to chatcord");
+
+    // socket.on('message', (data)=> {
+    //     console.log("messaging user",data)
+    //     io.emit('message', data);
+    // })
 });
 
 server.listen(port, () => {
